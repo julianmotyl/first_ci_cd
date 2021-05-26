@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
             post {
                 always {
@@ -19,7 +19,7 @@ pipeline {
         stage("SonarQube analysis") {
         	steps {
             	withSonarQubeEnv('SonarCloud') {
-                	sh 'mvn sonar:sonar'
+                	bat 'mvn sonar:sonar'
               	}
             }
         }
