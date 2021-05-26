@@ -16,5 +16,13 @@ pipeline {
                 }
             }
         }
+        stage('SonarQube analysis') {
+           steps {
+            	withSonarQubeEnv('Sonar Cloud') {
+                	bat 'mvn sonar:sonar'
+              	}
+
+           }
+        }
     }
 }
